@@ -42,14 +42,14 @@ namespace Unit05.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleFoodCollisions(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
+            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
             Score score = (Score)cast.GetFirstActor("score");
             Food food = (Food)cast.GetFirstActor("food");
             
-            if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
+            if (cycle.GetCycle().GetPosition().Equals(food.GetPosition()))
             {
                 int points = food.GetPoints();
-                snake.GrowTail(points);
+                cycle.GrowTrail(points);
                 score.AddPoints(points);
                 food.Reset();
             }
@@ -61,9 +61,9 @@ namespace Unit05.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            Actor head = snake.GetHead();
-            List<Actor> body = snake.GetBody();
+            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+            Actor head = cycle.GetCycle();
+            List<Actor> body = cycle.GetTrail();
 
             foreach (Actor segment in body)
             {
@@ -78,8 +78,8 @@ namespace Unit05.Game.Scripting
         {
             if (_isGameOver == true)
             {
-                Snake snake = (Snake)cast.GetFirstActor("snake");
-                List<Actor> segments = snake.GetSegments();
+                Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+                List<Actor> segments = cycle.GetTrails();
                 Food food = (Food)cast.GetFirstActor("food");
 
                 // create a "game over" message
