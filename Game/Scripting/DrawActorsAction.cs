@@ -25,6 +25,7 @@ namespace Unit05.Game.Scripting
         public void Execute(Cast cast, Script script)
         {
             Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+            Cycle cycle2 = (Cycle)cast.GetFirstActor("cycle2");
             List<Actor> segments = cycle.GetTrail();
             Actor score = cast.GetFirstActor("score");
             Actor food = cast.GetFirstActor("food");
