@@ -44,15 +44,15 @@ namespace Unit05.Game.Scripting
         {
             Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
             Score score = (Score)cast.GetFirstActor("score");
-            Food food = (Food)cast.GetFirstActor("food");
+            // Food food = (Food)cast.GetFirstActor("food");
             
-            if (cycle.GetCycle().GetPosition().Equals(food.GetPosition()))
-            {
-                int points = food.GetPoints();
-                cycle.GrowTrail(points);
-                score.AddPoints(points);
-                food.Reset();
-            }
+            // if (cycle.GetCycle().GetPosition().Equals(food.GetPosition()))
+            // {
+            //     int points = food.GetPoints();
+            //     cycle.GrowTrail(points);
+            //     score.AddPoints(points);
+            //     food.Reset();
+            // }
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace Unit05.Game.Scripting
             {
                 Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
                 List<Actor> segments = cycle.GetTrails();
-                Food food = (Food)cast.GetFirstActor("food");
+                // Food food = (Food)cast.GetFirstActor("food");
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
@@ -97,7 +97,7 @@ namespace Unit05.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
-                food.SetColor(Constants.WHITE);
+                // food.SetColor(Constants.WHITE);
             }
         }
 
