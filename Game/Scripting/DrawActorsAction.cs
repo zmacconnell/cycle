@@ -27,8 +27,9 @@ namespace Unit05.Game.Scripting
             Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
             Cycle cycle2 = (Cycle)cast.GetFirstActor("cycle2");
             List<Actor> segments = cycle.GetTrail();
+            segments = cycle2.GetTrail();
             Actor score = cast.GetFirstActor("score");
-            Actor food = cast.GetFirstActor("food");
+            // Actor food = cast.GetFirstActor("food");
             List<Actor> messages = cast.GetActors("messages");
             
             _videoService.ClearBuffer();
