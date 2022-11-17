@@ -26,32 +26,7 @@ namespace Unit05.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            // left
-            if (_keyboardService.IsKeyDown("j"))
-            {
-                _direction = new Point(-Constants.CELL_SIZE, 0);
-            }
-
-            // right
-            if (_keyboardService.IsKeyDown("l"))
-            {
-                _direction = new Point(Constants.CELL_SIZE, 0);
-            }
-
-            // up
-            if (_keyboardService.IsKeyDown("i"))
-            {
-                _direction = new Point(0, -Constants.CELL_SIZE);
-            }
-
-            // down
-            if (_keyboardService.IsKeyDown("k"))
-            {
-                _direction = new Point(0, Constants.CELL_SIZE);
-            }
-
-            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
-            cycle.TurnCycle(_direction);
+            
 
         }
     }
