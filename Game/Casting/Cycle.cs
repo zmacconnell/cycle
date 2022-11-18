@@ -113,7 +113,7 @@ namespace Unit05.Game.Casting
                 string text = i == 0 ? "8" : "#";
                 Color color = Constants.WHITE;
                 if (colorChoice == 0) {
-                    color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+                    color = i == 0 ? Constants.YELLOW : Constants.BLUE;
                 }
                 else if (colorChoice == 1) {
                     color = i == 0 ? Constants.YELLOW : Constants.RED;
