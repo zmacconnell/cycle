@@ -15,9 +15,9 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Constructs a new instance of a LightCycle.
         /// </summary>
-        public Cycle()
+        public Cycle(int colorChoice)
         {
-            PrepareCycle();
+            PrepareCycle(colorChoice);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Prepares the lightbike trail for moving.
         /// </summary>
-        private void PrepareCycle()
+        private void PrepareCycle(int colorChoice)
         {
             Random random = new Random();
             int x = random.Next(0,Constants.MAX_X);
@@ -108,7 +108,6 @@ namespace Unit05.Game.Casting
 
             for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
             {
-                int colorChoice = 1;
                 Point position = new Point(x - i * Constants.CELL_SIZE, y);
                 Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
                 string text = i == 0 ? "8" : "#";
