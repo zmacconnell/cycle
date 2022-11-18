@@ -63,8 +63,8 @@ namespace Unit05.Game.Scripting
         {
             Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
             Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
-            Actor bike = cycle.GetCycle();
-            Actor bike2 = cycle2.GetCycle();
+            Actor bike = cycle.GetBike();
+            Actor bike2 = cycle2.GetBike();
             List<Actor> trail = cycle.GetTrail();
             List<Actor> trail2 = cycle.GetTrail();
 

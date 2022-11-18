@@ -100,16 +100,26 @@ namespace Unit05.Game.Casting
         /// </summary>
         private void PrepareCycle()
         {
-            int x = Constants.MAX_X / 2;
-            int y = Constants.MAX_Y / 2;
+            Random random = new Random();
+            int x = random.Next(0,Constants.MAX_X);
+            int y = random.Next(0,Constants.MAX_Y);
+            // int x = Constants.MAX_X / 2;
+            // int y = Constants.MAX_Y / 2;
 
             for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
             {
+                int colorChoice = 1;
                 Point position = new Point(x - i * Constants.CELL_SIZE, y);
                 Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
                 string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
-
+                Color color = Constants.WHITE;
+                if (colorChoice == 0) {
+                    color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+                }
+                else if (colorChoice == 1) {
+                    color = i == 0 ? Constants.YELLOW : Constants.RED;
+                }
+                
                 Actor segment = new Actor();
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
