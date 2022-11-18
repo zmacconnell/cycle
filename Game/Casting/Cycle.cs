@@ -10,7 +10,7 @@ namespace Unit05.Game.Casting
     /// </summary>
     public class Cycle : Actor
     {
-        private List<Actor> _trail = new List<Actor>();
+        private List<Actor> _segments = new List<Actor>();
 
         /// <summary>
         /// Constructs a new instance of a LightCycle.
@@ -26,25 +26,25 @@ namespace Unit05.Game.Casting
         /// <returns>The trail segments in a List.</returns>
         public List<Actor> GetTrail()
         {
-            return new List<Actor>(_trail.Skip(1).ToArray());
+            return new List<Actor>(_segments.Skip(1).ToArray());
         }
 
         /// <summary>
         /// Gets the lightbike's bike segment.
         /// </summary>
         /// <returns>The bike segment as an instance of Actor.</returns>
-        public Actor GetCycle()
+        public Actor GetBike()
         {
-            return _trail[0];
+            return _segments[0];
         }
 
         /// <summary>
         /// Gets the lightbike's segments (including the head).
         /// </summary>
         /// <returns>A list of lightbike segments as instances of Actors.</returns>
-        public List<Actor> GetTrails()
+        public List<Actor> GetCycle()
         {
-            return _trail;
+            return _segments;
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Unit05.Game.Casting
         {
             for (int i = 0; i < numberOfSegments; i++)
             {
-                Actor trail = _trail.Last<Actor>();
+                Actor trail = _segments.Last<Actor>();
                 Point velocity = trail.GetVelocity();
                 Point offset = velocity.Reverse();
                 Point position = trail.GetPosition().Add(offset);
@@ -65,22 +65,22 @@ namespace Unit05.Game.Casting
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
                 segment.SetColor(Constants.GREEN);
-                _trail.Add(segment);
+                _segments.Add(segment);
             }
         }
 
         /// <inheritdoc/>
         public override void MoveNext()
         {
-            foreach (Actor segment in _trail)
+            foreach (Actor segment in _segments)
             {
                 segment.MoveNext();
             }
 
-            for (int i = _trail.Count - 1; i > 0; i--)
+            for (int i = _segments.Count - 1; i > 0; i--)
             {
-                Actor trailing = _trail[i];
-                Actor previous = _trail[i - 1];
+                Actor trailing = _segments[i];
+                Actor previous = _segments[i - 1];
                 Point velocity = previous.GetVelocity();
                 trailing.SetVelocity(velocity);
             }
@@ -90,9 +90,9 @@ namespace Unit05.Game.Casting
         /// Turns the bike of the lightbike in the given direction.
         /// </summary>
         /// <param name="velocity">The given direction.</param>
-        public void TurnCycle(Point direction)
+        public void TurnBike(Point direction)
         {
-            _trail[0].SetVelocity(direction);
+            _segments[0].SetVelocity(direction);
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Unit05.Game.Casting
                 segment.SetVelocity(velocity);
                 segment.SetText(text);
                 segment.SetColor(color);
-                _trail.Add(segment);
+                _segments.Add(segment);
             }
         }
     }

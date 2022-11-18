@@ -52,7 +52,7 @@ namespace Unit05.Game.Scripting
             }
 
             Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
-            cycle.TurnCycle(_direction1);
+            cycle.TurnBike(_direction1);
 
             // left
             if (_keyboardService.IsKeyDown("j"))
@@ -79,7 +79,7 @@ namespace Unit05.Game.Scripting
             }
 
             Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
-            cycle2.TurnCycle(_direction2);
+            cycle2.TurnBike(_direction2);
         }
     }
 }

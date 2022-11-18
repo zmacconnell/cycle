@@ -30,7 +30,6 @@ namespace Unit05.Game.Scripting
         {
             if (_isGameOver == false)
             {
-                HandleFoodCollisions(cast);
                 HandleSegmentCollisions(cast);
                 HandleGameOver(cast);
             }
@@ -43,6 +42,7 @@ namespace Unit05.Game.Scripting
         private void HandleFoodCollisions(Cast cast)
         {
             Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+            Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
             Score score = (Score)cast.GetFirstActor("score");
             // Food food = (Food)cast.GetFirstActor("food");
             
@@ -62,12 +62,22 @@ namespace Unit05.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
-            Actor head = cycle.GetCycle();
-            List<Actor> body = cycle.GetTrail();
+            Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
+            Actor bike = cycle.GetCycle();
+            Actor bike2 = cycle2.GetCycle();
+            List<Actor> trail = cycle.GetTrail();
+            List<Actor> trail2 = cycle.GetTrail();
 
-            foreach (Actor segment in body)
+            foreach (Actor segment in trail)
             {
-                if (segment.GetPosition().Equals(head.GetPosition()))
+                if (segment.GetPosition().Equals(bike.GetPosition()) || segment.GetPosition().Equals(bike2.GetPosition()))
+                {
+                    _isGameOver = true;
+                }
+            }
+            foreach (Actor segment in trail2)
+            {
+                if (segment.GetPosition().Equals(bike.GetPosition()) || segment.GetPosition().Equals(bike2.GetPosition()))
                 {
                     _isGameOver = true;
                 }
@@ -79,7 +89,9 @@ namespace Unit05.Game.Scripting
             if (_isGameOver == true)
             {
                 Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
-                List<Actor> segments = cycle.GetTrails();
+                Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
+                List<Actor> segments = cycle.GetTrail();
+                List<Actor> segments2 = cycle2.GetTrail();
                 // Food food = (Food)cast.GetFirstActor("food");
 
                 // create a "game over" message
@@ -94,6 +106,10 @@ namespace Unit05.Game.Scripting
 
                 // make everything white
                 foreach (Actor segment in segments)
+                {
+                    segment.SetColor(Constants.WHITE);
+                }
+                foreach (Actor segment in segments2)
                 {
                     segment.SetColor(Constants.WHITE);
                 }
