@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 
 namespace Unit05.Game.Casting
@@ -31,11 +32,13 @@ namespace Unit05.Game.Casting
             if (!_actors.ContainsKey(group))
             {
                 _actors[group] = new List<Actor>();
+                Console.WriteLine($"Created new category {group}");
             }
 
             if (!_actors[group].Contains(actor))
             {
                 _actors[group].Add(actor);
+                Console.WriteLine($"Added new actor to {group}");
             }
         }
 
@@ -96,7 +99,7 @@ namespace Unit05.Game.Casting
             Actor result = null;
             if (_actors.ContainsKey(group))
             {
-                if (_actors[group].Count > 1)
+                if (_actors[group].Count > 0)
                 {
                     result = _actors[group][1];
                 }
