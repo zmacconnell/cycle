@@ -24,9 +24,10 @@ The project files and folders are organized as follows:
 ```
 root                    (project root folder)
 +-- Game                (source code folder)
++-- Constants.cs        (Programs constant variables)
 +-- Program.cs          (program entry point)    
 +-- README.md           (general info)
-+-- Greed.csproj        (dotnet project file)
++-- cycle.csproj        (dotnet project file)
 ```
 
 ## Required Technologies
@@ -34,4 +35,6 @@ root                    (project root folder)
 * raylib-cs 3.7.0.1
 
 ## Authors
-* 
+* Lindsay Garner
+* Kristin Thumstedter
+* Zach MacConnell
