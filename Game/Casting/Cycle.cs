@@ -101,8 +101,8 @@ namespace Unit05.Game.Casting
         private void PrepareCycle(int colorChoice)
         {
             Random random = new Random();
-            int x = random.Next(0,Constants.MAX_X);
-            int y = random.Next(0,Constants.MAX_Y);
+            int x = (random.Next(2,Constants.MAX_X/15)) * 15;
+            int y = (random.Next(2,Constants.MAX_Y/15)) * 15;
             // int x = Constants.MAX_X / 2;
             // int y = Constants.MAX_Y / 2;
 

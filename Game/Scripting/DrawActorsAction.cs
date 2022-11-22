@@ -34,6 +34,7 @@ namespace Unit05.Game.Scripting
             
             _videoService.ClearBuffer();
             _videoService.DrawActors(segments);
+            _videoService.DrawActors(segments2);
             _videoService.DrawActor(score);
             // _videoService.DrawActor(food);
             _videoService.DrawActors(messages);
