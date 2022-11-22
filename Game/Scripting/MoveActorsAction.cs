@@ -24,13 +24,22 @@ namespace Unit05.Game.Scripting
         {
         }
 
+        int _trail = 0;
+
        /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
             List<Actor> actors = cast.GetAllActors();
+            Cycle cycle1 = (Cycle)cast.GetFirstActor("cycle");
+            Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
             foreach (Actor actor in actors)
             {
                 actor.MoveNext();
+                _trail += 1;
+                if (_trail % 30 == 0) {
+                    cycle1.GrowTrail(1);
+                    cycle2.GrowTrail(1);
+                }
             }
         }
     }
